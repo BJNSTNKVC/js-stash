@@ -21,14 +21,14 @@ class Stash {
     static driver(driver: 'session'): typeof SessionStorage;
 
     /**
-	 * Creates a new instance of the Stash for the given driver.
-	 *
-	 * @param { 'local' | 'session' } driver
-	 *
-	 * @returns { typeof LocalStorage | typeof SessionStorage }
-	 *
-	 * @throws { Error }
-	 */
+     * Creates a new instance of the Stash for the given driver.
+     *
+     * @param { 'local' | 'session' } driver
+     *
+     * @returns { typeof LocalStorage | typeof SessionStorage }
+     *
+     * @throws { Error }
+     */
     static driver(driver: 'local' | 'session'): typeof LocalStorage | typeof SessionStorage {
         switch (driver) {
             case 'local':
