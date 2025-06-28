@@ -7,43 +7,40 @@ class Stash {
 	 *
 	 * @param { 'local' | 'session' } driver
 	 *
-	 * @returns { LocalStorage | SessionStorage }
+	 * @returns { typeof LocalStorage | typeof SessionStorage }
 	 *
 	 * @throws { Error }
 	 */
-    static driver(driver: 'local' | 'session'): LocalStorage | SessionStorage {
-        switch(driver) {
-			case 'local': {
-				return Stash.local();
-			}
-			
-			case 'session': {
-				return Stash.session();
-			}
-			
-			default: {
-				throw new Error('Unsupported driver.');
-			}
-		}
+    static driver(driver: 'local' | 'session'): typeof LocalStorage | typeof SessionStorage {
+        switch (driver) {
+            case 'local':
+                return LocalStorage;
+
+            case 'session':
+                return SessionStorage;
+
+            default:
+                throw new Error('Unsupported driver.');
+        }
     }
 
-	/**
-	 * Creates a new instance of the Local Storage.
-	 *
-	 * @returns { LocalStorage }
-	 */
-	static local(): LocalStorage {
-		return new LocalStorage();
-	}
-	
-	/**
-	 * Creates a new instance of the Session Storage.
-	 *
-	 * @returns { SessionStorage }
-	 */
-	static session(): SessionStorage {
-		return new SessionStorage();
-	}
+    /**
+     * Creates a new instance of the Local Storage.
+     *
+     * @returns { typeof LocalStorage }
+     */
+    static local(): typeof LocalStorage {
+        return LocalStorage;
+    }
+
+    /**
+     * Creates a new instance of the Session Storage.
+     *
+     * @returns { typeof SessionStorage }
+     */
+    static session(): typeof SessionStorage {
+        return SessionStorage;
+    }
 }
 
 if (typeof exports != 'undefined') {
