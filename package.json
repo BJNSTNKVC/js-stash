@@ -1,6 +1,6 @@
 {
   "name": "@bjnstnkvc/stash",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Simple wrapper for JavaScript Local and Session Storage API.",
   "main": "lib/main.js",
   "source": "src/main.ts",
@@ -35,7 +35,7 @@
     "uglify-js": "^3.19.3"
   },
   "dependencies": {
-    "@bjnstnkvc/local-storage": "^1.1.2",
-    "@bjnstnkvc/session-storage": "^1.0.1"
+    "@bjnstnkvc/local-storage": "^1.1.5",
+    "@bjnstnkvc/session-storage": "^1.0.4"
   }
 }
