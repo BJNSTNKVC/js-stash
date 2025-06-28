@@ -31,11 +31,11 @@ Creates a new instance of the Stash for the given driver.
 #### Example
 
 ```javascript
-const local = Stash.driver('local') as typeof LocalStorage;
+const local: typeof LocalStorage = Stash.driver('local');
 ```
 
 ```javascript
-const session = Stash.driver('session') as typeof SessionStorage;
+const session: typeof SessionStorage = Stash.driver('session');
 ```
 
 >**Note:** Driver implementations can be found in [local-storage](https://github.com/BJNSTNKVC/js-local-storage) and [session-storage](https://github.com/BJNSTNKVC/js-session-storage) repositories respectively.

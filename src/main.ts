@@ -2,7 +2,25 @@ import { LocalStorage } from '@bjnstnkvc/local-storage';
 import { SessionStorage } from '@bjnstnkvc/session-storage';
 
 class Stash {
-	/**
+    /**
+     * Returns the LocalStorage class instance.
+     *
+     * @param { 'local' } driver
+     *
+     * @returns { typeof LocalStorage }
+     */
+    static driver(driver: 'local'): typeof LocalStorage;
+
+    /**
+     * Returns the SessionStorage class instance.
+     *
+     * @param { 'session' } driver
+     *
+     * @returns { typeof SessionStorage }
+     */
+    static driver(driver: 'session'): typeof SessionStorage;
+
+    /**
 	 * Creates a new instance of the Stash for the given driver.
 	 *
 	 * @param { 'local' | 'session' } driver
