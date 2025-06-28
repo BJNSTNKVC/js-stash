@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/BJNSTNKVC/js-stash/issues"
   },
-  "homepage": "https://github.com/BJNSTNKVC/js-stash#readme"
+  "homepage": "https://github.com/BJNSTNKVC/js-stash#readme",
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
 }
