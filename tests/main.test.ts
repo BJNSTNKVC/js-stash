@@ -1,7 +1,13 @@
-// @ts-nocheck
-require('../src/main');
+import { Stash, LocalStorage, SessionStorage } from '../src/main';
 
 class Storage {
+/**
+     * The underlying data store that maintains all key-value pairs in memory.
+     *
+     * @type { Record<string, any> }
+     */
+    public store: Record<string, any>;
+
     /**
      * Create a new Storage object.
      */
@@ -34,7 +40,7 @@ class Storage {
      * @param { string } keyName
      * @param { string } keyValue
      */
-    setItem(keyName: string, keyValue: string) {
+    setItem(keyName: string, keyValue: string): void {
         this.store[keyName] = keyValue;
     }
 
@@ -43,22 +49,20 @@ class Storage {
      *
      * @param { string } keyName
      */
-    removeItem(keyName: string) {
+    removeItem(keyName: string): void {
         delete this.store[keyName];
     }
 
     /**
      * When invoked, will empty all keys out of the storage.
      */
-    clear() {
+    clear(): void {
         this.store = {};
     }
 }
 
-const _global: any = global;
-
-_global.localStorage = new Storage;
-_global.sessionStorage = new Storage;
+(global as any).localStorage = new Storage;
+(global as any).sessionStorage = new Storage;
 
 beforeEach((): void => {
     localStorage.clear();
@@ -75,7 +79,7 @@ describe('Stash.driver', (): void => {
     });
 
     test('throws error if driver is not supported', (): void => {
-        expect((): any => Stash.driver('test')).toThrow('Unsupported driver.');
+        expect((): any => Stash.driver('test' as any)).toThrow('Unsupported driver.');
     });
 });
 
