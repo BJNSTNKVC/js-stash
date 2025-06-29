@@ -18,6 +18,14 @@ and then import it into your project
 import { Stash } from '@bjnstnkvc/stash';
 ```
 
+### CDN
+
+You can install the package via jsDelivr CDN:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@bjnstnkvc/stash/lib/main.min.js"></script>
+```
+
 ## Usage
 
 ### driver

@@ -1,25 +1,9 @@
 import { LocalStorage } from '@bjnstnkvc/local-storage';
 import { SessionStorage } from '@bjnstnkvc/session-storage';
 
-class Stash {
-    /**
-     * Returns the LocalStorage class instance.
-     *
-     * @param { 'local' } driver
-     *
-     * @returns { typeof LocalStorage }
-     */
-    static driver(driver: 'local'): typeof LocalStorage;
+export { LocalStorage, SessionStorage };
 
-    /**
-     * Returns the SessionStorage class instance.
-     *
-     * @param { 'session' } driver
-     *
-     * @returns { typeof SessionStorage }
-     */
-    static driver(driver: 'session'): typeof SessionStorage;
-
+export class Stash {
     /**
      * Creates a new instance of the Stash for the given driver.
      *
@@ -61,13 +45,14 @@ class Stash {
     }
 }
 
-if (typeof exports != 'undefined') {
-    module.exports.Stash = Stash;
+if (typeof window !== 'undefined') {
+    (window as any).Stash = Stash;
+    (window as any).LocalStorage = LocalStorage;
+    (window as any).SessionStorage = SessionStorage;
 }
 
-// Hack to test this code, global is not available in the browser.
 if (typeof global !== 'undefined') {
-    const _global: any = global;
-
-    _global.Stash = Stash;
+    (global as any).Stash = Stash;
+    (global as any).LocalStorage = LocalStorage;
+    (global as any).SessionStorage = SessionStorage;
 }
