@@ -1,4 +1,4 @@
-import { Stash, LocalStorage, SessionStorage } from '../src/main';
+import { Stash, LocalStorage, SessionStorage, Cookie } from '../src/main';
 
 class Storage {
 /**
@@ -78,6 +78,10 @@ describe('Stash.driver', (): void => {
         expect(Stash.driver('session')).toBe(SessionStorage);
     });
 
+    test('returns instance of Cookie when driver is "cookie"', (): void => {
+        expect(Stash.driver('cookie')).toBe(Cookie);
+    });
+
     test('throws error if driver is not supported', (): void => {
         expect((): any => Stash.driver('test' as any)).toThrow('Unsupported driver.');
     });
@@ -112,5 +116,21 @@ describe('Stash.session', (): void => {
         session.set(key, value);
 
         expect(session.get(key)).toBe(value);
+    });
+});
+
+describe('Stash.cookie', (): void => {
+    test('returns instance of Cookie', (): void => {
+        expect(Stash.cookie()).toBe(Cookie);
+    });
+
+    test('can call underlying Cookie methods', (): void => {
+        const cookie: typeof Cookie = Stash.cookie();
+        const key: string = '$key';
+        const value: string = '$value';
+
+        cookie.set(key, value);
+
+        expect(cookie.get(key)).toBe(value);
     });
 });
