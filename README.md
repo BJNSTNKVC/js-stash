@@ -34,7 +34,7 @@ Creates a new instance of the Stash for the given driver.
 
 #### Parameters
 
-- **driver** - String containing the name of the storage driver to be used (_**'local'**_ or _**'session'**_).
+- **driver** - String containing the name of the storage driver to be used (_**'local'**_, _**'session'**_ or _**'cookie'**_).
 
 #### Example
 
@@ -46,7 +46,11 @@ const local: typeof LocalStorage = Stash.driver('local');
 const session: typeof SessionStorage = Stash.driver('session');
 ```
 
->**Note:** Driver implementations can be found in [local-storage](https://github.com/BJNSTNKVC/js-local-storage) and [session-storage](https://github.com/BJNSTNKVC/js-session-storage) repositories respectively.
+```javascript
+const cookie: typeof Cookie = Stash.driver('cookie');
+```
+
+>**Note:** Driver implementations can be found in [local-storage](https://github.com/BJNSTNKVC/js-local-storage), [session-storage](https://github.com/BJNSTNKVC/js-session-storage) and [cookie](https://github.com/BJNSTNKVC/js-cookie) repositories respectively.
 
 ### local
 
@@ -65,5 +69,15 @@ Creates a new instance of the Session Storage.
 #### Example
 
 ```javascript
-const local: typeof SessionStorage = Stash.session();
+const session: typeof SessionStorage = Stash.session();
+````
+
+### cookie
+
+Creates a new instance of the Cookie.
+
+#### Example
+
+```javascript
+const cookie: typeof Cookie = Stash.cookie();
 ````

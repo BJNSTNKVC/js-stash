@@ -1,7 +1,7 @@
 {
   "name": "@bjnstnkvc/stash",
-  "version": "1.0.4",
-  "description": "Simple wrapper for JavaScript Local and Session Storage API.",
+  "version": "1.0.5",
+  "description": "Simple wrapper for JavaScript Local Storage, Session Storage and Cookie API.",
   "type": "module",
   "main": "lib/main.js",
   "source": "src/main.ts",
@@ -48,7 +48,8 @@
     "typescript": "^5.8.3"
   },
   "dependencies": {
-    "@bjnstnkvc/local-storage": "^1.1.6",
-    "@bjnstnkvc/session-storage": "^1.0.5"
+    "@bjnstnkvc/cookie": "^1.0.2",
+    "@bjnstnkvc/local-storage": "^1.1.7",
+    "@bjnstnkvc/session-storage": "^1.0.6"
   }
 }
