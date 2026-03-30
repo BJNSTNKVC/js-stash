@@ -2,7 +2,9 @@ import { LocalStorage } from '@bjnstnkvc/local-storage';
 import { SessionStorage } from '@bjnstnkvc/session-storage';
 import { Cookie } from '@bjnstnkvc/cookie';
 
-export { LocalStorage, SessionStorage, Cookie };
+export { LocalStorage } from '@bjnstnkvc/local-storage';
+export { SessionStorage } from '@bjnstnkvc/session-storage';
+export { Cookie } from '@bjnstnkvc/cookie';
 
 export class Stash {
     /**
@@ -58,16 +60,16 @@ export class Stash {
     }
 }
 
-if (typeof window !== 'undefined') {
-    (window as any).Stash = Stash;
-    (window as any).LocalStorage = LocalStorage;
-    (window as any).SessionStorage = SessionStorage;
-    (window as any).Cookie = Cookie;
+if (typeof globalThis !== 'undefined') {
+    (globalThis as any).Stash = Stash;
+    (globalThis as any).LocalStorage = LocalStorage;
+    (globalThis as any).SessionStorage = SessionStorage;
+    (globalThis as any).Cookie = Cookie;
 }
 
-if (typeof global !== 'undefined') {
-    (global as any).Stash = Stash;
-    (global as any).LocalStorage = LocalStorage;
-    (global as any).SessionStorage = SessionStorage;
-    (global as any).Cookie = Cookie;
+if (typeof globalThis !== 'undefined') {
+    (globalThis as any).Stash = Stash;
+    (globalThis as any).LocalStorage = LocalStorage;
+    (globalThis as any).SessionStorage = SessionStorage;
+    (globalThis as any).Cookie = Cookie;
 }
